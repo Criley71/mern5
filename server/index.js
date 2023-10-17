@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
     res.json("Hello");
 })
 
-app.get('/login', (req, res) => {
+app.post('/login', (req, res) => {
     const { email, password } = req.body;
     RegisterModel.findOne({ email: email })
         .then(user => {
