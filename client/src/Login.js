@@ -2,7 +2,16 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import './LoginValidation'
+import validation from './LoginValidation';
 function Login() {
+    const [values, setValues] = useState({
+        email: '',
+        password: ''
+    })
+    const [errors, setErrors] = useState()
+    const handleEvent = (event) => {
+        setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
+    }
     const [email, setEmail] = useState();
     const [password, setPassword] = useState()
     const nav = useNavigate(); //nav the goat fr
@@ -11,6 +20,7 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post('https://mern5-api.vercel.app/login', {email, password})
+        setErrors(validation(values))
         .then(result => {
             console.log(result)
             if(result.data == "Success"){
@@ -38,6 +48,7 @@ function Login() {
                         className='email'
                         onChange={e => setEmail(e.target.value)}
                     />
+                    {errors.email && <span className='text-danger'>{errors.email}</span>}
                 </div>
                 <div>
                 <label htmlFor='password'>
@@ -56,7 +67,7 @@ function Login() {
                     Login
                 </button>
             </form>
-            <Link to="/register">
+            <Link to="/">
                     <button className='btn'>
                         Register
                     </button>
