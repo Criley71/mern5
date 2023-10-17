@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './App.css'
 import axios from 'axios'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Login from './Login'
 
 function App() {
   const [name, setName] = useState('');
@@ -40,11 +42,17 @@ function App() {
             Register
           </button>
           <br />
-          <button type='submit' className='btn'>
+          <Link to="/login">
+          <button className='btn'>
             Login
           </button>
+          </Link>
       </form>
-
+      <BrowserRouter>
+      <Routes>
+        <Route path='/login' element = {<Login />}></Route>
+      </Routes>
+      </BrowserRouter>
     </div>
     </>
   )
