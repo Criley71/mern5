@@ -20,7 +20,7 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post('https://mern5-api.vercel.app/login', {email, password})
-        setErrors(validation(values))
+        //setErrors(validation(values))
         .then(result => {
             console.log(result)
             if(result.data == "Success"){
