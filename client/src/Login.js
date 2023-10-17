@@ -48,7 +48,7 @@ function Login() {
                         className='email'
                         onChange={handleInput}
                     />
-                    {errors.email && <span className='text-danger'> {errors.email}</span>}
+                    
                 </div>
                 <div>
                 <label htmlFor='password'>
