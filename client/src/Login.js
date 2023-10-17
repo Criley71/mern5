@@ -33,7 +33,7 @@ function Login() {
 
   return (
     <div>
-        <div className='App'>
+        <div>
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <div>
