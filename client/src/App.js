@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './App.css'
 import axios from 'axios'
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
-import Link from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Login from './Login'
 
 function App() {
