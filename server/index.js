@@ -4,10 +4,20 @@ const cors = require('cors')
 const RegisterModel = require("./models/Register")
 const app = express()
 
-app.use(cors())
+app.use(cors(
+    {
+        origin: [""],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+))
 app.use(express.json())
 
 mongoose.connect('mongodb+srv://criley16:141028Cr@merntodo.cpttvig.mongodb.net/test')
+
+app.get("/", (req, res) => {
+    res.json("Hello");
+})
 
 app.post('/register', (req, res) => {
     const {name, email, password} = req.body;
