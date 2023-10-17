@@ -19,7 +19,7 @@ function Login() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors(validation(values))
+        //setErrors(validation(values))
         axios.post('https://mern5-api.vercel.app/login', {values})
         .then(result => {
             console.log(result)
