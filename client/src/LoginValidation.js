@@ -10,16 +10,16 @@ function validation(values){
     }
 
     else if(!email_pattern.test(values.email)){
-        error.email = "Email didn't match"
+        error.email = "Email didn't match to any account"
     }
     else{
         error.email = ""
     }
-    if(values.password ===""){
-        error.password = "Password should not be empty"
+    if(values.password === ""){
+        error.password = "password should not be empty"
     }
     else if(!password_pattern.test(values.password)){
-        error.password = "Password didn't match"
+        error.password = "incorrect password"
     }
     else{
         error.password = ""
