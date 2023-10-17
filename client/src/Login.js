@@ -45,7 +45,7 @@ function Login() {
                         placeholder='Enter Email'
                         autoComplete='off'
                         name='email'
-                        className='email'
+                        className='from-control rounded-0'
                         onChange={handleInput}
                     />
                     {errors.email && <span className='text-danger'> {errors.email}</span>}
@@ -58,8 +58,8 @@ function Login() {
                         type='password'
                         placeholder='Enter Password'
                         autoComplete='off'
-                        name='email'
-                        className='email'
+                        name='password'
+                        className='from-control rounded-0'
                         onChange={handleInput}
                     />
                     {errors.password && <span className='text-danger'> {errors.password}</span>} 
