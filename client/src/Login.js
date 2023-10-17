@@ -48,7 +48,7 @@ function Login() {
                         className='from-control rounded-0'
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    {errors.email && <span className='text-danger'> {errors.email}</span>}
+                    
                 </div>
                 <div>
                 <label htmlFor='password'>
@@ -62,7 +62,7 @@ function Login() {
                         className='from-control rounded-0'
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    {errors.password && <span className='text-danger'> {errors.password}</span>} 
+                    
                 </div>
                 <button type='submit' className='subbtn'>
                     Login
