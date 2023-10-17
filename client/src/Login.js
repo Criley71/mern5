@@ -19,8 +19,8 @@ function Login() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://mern5-api.vercel.app/login', {email, password})
-        //setErrors(validation(values))
+        setErrors(validation(values))
+        axios.post('https://mern5-api.vercel.app/login', {values})
         .then(result => {
             console.log(result)
             if(result.data == "Success"){
@@ -46,7 +46,7 @@ function Login() {
                         autoComplete='off'
                         name='email'
                         className='email'
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={handleInput}
                     />
                     
                 </div>
@@ -60,7 +60,7 @@ function Login() {
                         autoComplete='off'
                         name='email'
                         className='email'
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={handleInput}
                     /> 
                 </div>
                 <button type='submit' className='subbtn'>
