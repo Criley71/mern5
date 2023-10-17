@@ -27,9 +27,9 @@ function Login() {
                 console.log(result)
                 if (result.data === "Success") {
                     nav('/home')
-                } else if (result.data === "Incorrect Password") {
+                }if (result.data === "Incorrect Password") {
                     setPassError(true)
-                } else if (result.data === "No email associated with an account") {
+                }if (result.data === "No email associated with an account") {
                     setEmailError(true)
                 }
             })
@@ -80,10 +80,10 @@ function Login() {
                     </button>
                 </Link>
                 <div>
-                    {emailError ? '' : 'Incorrect email'}
+                    {emailError ?  'Incorrect email' : ''}
                 </div>
                 <div>
-                    {passError ? '' : 'Incorrect Password'}
+                    {passError ? 'Incorrect Password' : ''}
                 </div>
             </div>
         </div>
