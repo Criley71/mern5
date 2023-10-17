@@ -22,7 +22,7 @@ function Login() {
 
   return (
     <div>
-        <div>
+        <div className='login'>
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -40,7 +40,7 @@ function Login() {
                 </div>
                 <div>
                 <label htmlFor='password'>
-                        <strong>Email</strong>
+                        <strong>Password</strong>
                     </label>
                     <input 
                         type='password'
@@ -55,6 +55,11 @@ function Login() {
                     Login
                 </button>
             </form>
+            <Link to="/register">
+                    <button className='btn'>
+                        Register
+                    </button>
+                </Link>
         </div>
     </div>
   )
