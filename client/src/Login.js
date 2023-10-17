@@ -9,7 +9,7 @@ function Login() {
         password: ''
     })
     const [errors, setErrors] = useState()
-    const handleEvent = (event) => {
+    const handleInput = (event) => {
         setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
     }
     const [email, setEmail] = useState();
@@ -46,9 +46,9 @@ function Login() {
                         autoComplete='off'
                         name='email'
                         className='email'
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={handleInput}
                     />
-                    
+                    {errors.email && <span className='text-danger'> {errors.email}</span>}
                 </div>
                 <div>
                 <label htmlFor='password'>
@@ -60,7 +60,7 @@ function Login() {
                         autoComplete='off'
                         name='email'
                         className='email'
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={handleInput}
                     /> 
                 </div>
                 <button type='submit' className='subbtn'>
