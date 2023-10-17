@@ -46,7 +46,7 @@ function Login() {
                         autoComplete='off'
                         name='email'
                         className='from-control rounded-0'
-                        onChange={handleInput}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     {errors.email && <span className='text-danger'> {errors.email}</span>}
                 </div>
@@ -60,7 +60,7 @@ function Login() {
                         autoComplete='off'
                         name='password'
                         className='from-control rounded-0'
-                        onChange={handleInput}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     {errors.password && <span className='text-danger'> {errors.password}</span>} 
                 </div>
