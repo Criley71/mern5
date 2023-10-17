@@ -1,11 +1,24 @@
 import React, { useState } from 'react'
 import './App.css'
 import axios from 'axios'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Login from './Login'
+import Register from './Register'
 
 function App() {
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Register />} />
+          <Route path='/login' element={<Login />} /> 
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
+
+  /*
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -56,7 +69,11 @@ function App() {
       </BrowserRouter>
     </div>
     </>
+    
+  
   )
+  */
+ 
 }
 
 export default App
