@@ -28,7 +28,7 @@ function Login() {
                 if (result.data === "Success") {
                     nav('/home')
                 } else if (result.data === "Incorrect Password") {
-                    setPassErrors(true)
+                    setPassError(true)
                 } else if (result.data === "No email associated with an account") {
                     setEmailError(true)
                 }
