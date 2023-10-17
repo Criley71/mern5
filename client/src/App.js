@@ -43,11 +43,11 @@ function App() {
             Register
           </button>
           <br />
-          <Link to="/login">
+          <a to="/login">
           <button className='btn'>
             Login
           </button>
-          </Link>
+          </a>
       </form>
       <BrowserRouter>
       <Routes>
