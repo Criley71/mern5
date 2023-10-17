@@ -48,7 +48,7 @@ function Login() {
                         className='email'
                         onChange={handleInput}
                     />
-                    
+                    {errors.email && <span className='text-danger'> {errors.email}</span>}
                 </div>
                 <div>
                 <label htmlFor='password'>
@@ -61,7 +61,8 @@ function Login() {
                         name='email'
                         className='email'
                         onChange={handleInput}
-                    /> 
+                    />
+                    {errors.password && <span className='text-danger'> {errors.password}</span>} 
                 </div>
                 <button type='submit' className='subbtn'>
                     Login
