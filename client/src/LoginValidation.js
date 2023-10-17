@@ -27,5 +27,5 @@ function validation(values){
 
     return error;
 }
-    export default Validation;
+    export default validation;
 
