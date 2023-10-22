@@ -1,5 +1,5 @@
 import React from 'react'
-import './survey.css';
+import './Survey.css';
 
 function Survey() {
     return (
