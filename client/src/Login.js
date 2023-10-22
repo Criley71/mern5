@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './LoginValidation'
 import validation from './LoginValidation';
-import user_icon from '../Assests/person.png';
-import email_icon from '../Assests/email.png';
-import password_icon from '../Assests/password.png';
+import user_icon from './person.png';
+import email_icon from './email.png';
+import password_icon from './password.png';
 function Login() {
     const [values, setValues] = useState({
         email: '',
