@@ -6,6 +6,9 @@ function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [nameError, setNameError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [passError, setPassError] = useState(false)
     axios.defaults.withCredentials = true;
     const handleSubmit = (e) => {
         e.preventDefault()

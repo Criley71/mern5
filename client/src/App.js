@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Login from './Login'
 import Register from './Register'
 import Home from './Home'
-
+import Survey from './Survey'
 function App() {
   return (
     <div>
@@ -15,6 +15,7 @@ function App() {
           <Route path='/' element={<Register />} />
           <Route path='/login' element={<Login />} />
           <Route path='/home' element={<Home />} />
+          <Route path='/survey' element={<Survey />} />
         </Routes>
       </BrowserRouter>
     </div>

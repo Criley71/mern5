@@ -1,5 +1,117 @@
-.login {
-    color: black;
-    text-align: center;
+/* Updated CSS with a Blue Diabetic Health Tracker Theme */
+
+body {
+    display: flex;
     justify-content: center;
-}
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(#4396ea, #90cae0); /* Blue gradient background */
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px; /* Slightly reduce margin */
+  }
+  
+  .text {
+    color: #1e90ff; /* Blue text color */
+    font-size: 36px;
+    font-weight: 700;
+  }
+  
+  .underline {
+    width: 61px;
+    height: 6px; /* Reduce underline height */
+    background: #1e90ff; /* Blue underline */
+    border-radius: 3px; /* Rounded underline */
+    margin: 10px auto;
+  }
+  
+  .inputs {
+    margin-top: 20px; /* Reduce top margin */
+  }
+  
+  .input {
+    display: flex;
+    align-items: center;
+    margin: 10px auto; /* Increase margin */
+    max-width: 480px;
+    height: 60px;
+    background: #f5f5f5; /* Light gray background */
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input img {
+    margin-right: 15px;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .input input {
+    flex-grow: 1;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #333;
+    font-size: 18px;
+  }
+  
+  .forgot-password {
+    text-align: right;
+    margin-top: 10px; /* Reduce top margin */
+    color: #1e90ff; /* Blue text color */
+    font-size: 16px; /* Slightly reduce font size */
+  }
+  
+  .forgot-password span {
+    color: #4358dd;
+    cursor: pointer;
+  }
+  
+  .submit-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Reduce gap */
+    margin: 20px auto; /* Reduce margin */
+  }
+  
+  .submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px; /* Slightly reduce button width */
+    height: 50px; /* Slightly reduce button height */
+    color: #fff;
+    background: #1e90ff; /* Blue background */
+    border-radius: 25px; /* Rounded button */
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
+  }
+  
+  .submit:hover {
+    background: #007acc; /* Darker blue on hover */
+  }
+  
+  .gray {
+    background: #eaeaea;
+    color: #878787;
+  }
+  

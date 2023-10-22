@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './LoginValidation'
 import validation from './LoginValidation';
+import user_icon from '../Assests/person.png';
+import email_icon from '../Assests/email.png';
+import password_icon from '../Assests/password.png';
 function Login() {
     const [values, setValues] = useState({
         email: '',
@@ -29,9 +32,9 @@ function Login() {
                 console.log(result)
                 if (result.data === "Success") {
                     nav('/home')
-                }if (result.data === "Incorrect Password") {
+                } if (result.data === "Incorrect Password") {
                     setPassError(true)
-                }if (result.data === "No email associated with an account") {
+                } if (result.data === "No email associated with an account") {
                     setEmailError(true)
                 }
             })
@@ -40,11 +43,13 @@ function Login() {
 
 
     return (
-        <div>
-            <div>
-                <h2>Login</h2>
-                <form onSubmit={handleSubmit}>
-                    <div>
+        <div className="container">
+            <div className="header">
+                <h2 className="text">Login</h2>
+                <div className="underline"></div>
+                <form onSubmit={handleSubmit} className="inputs">
+                    <div className="input">
+                        <img src={email_icon} alt="" />
                         <label htmlFor='email'>
                             <strong>Email</strong>
                         </label>
@@ -58,8 +63,9 @@ function Login() {
                         />
 
                     </div>
-                    <div>
+                    <div className="input">
                         <label htmlFor='password'>
+                            <img src={password_icon} alt="" />
                             <strong>Password</strong>
                         </label>
                         <input
@@ -71,10 +77,12 @@ function Login() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
 
-                    </div>
+                    </div >
+                    <div className="submit-container">
                     <button type='submit' className='subbtn'>
                         Login
                     </button>
+                    </div>
                 </form>
                 <Link to="/">
                     <button className='btn'>
@@ -82,7 +90,7 @@ function Login() {
                     </button>
                 </Link>
                 <div>
-                    {emailError ?  'Incorrect email' : ''}
+                    {emailError ? 'Incorrect email' : ''}
                 </div>
                 <div>
                     {passError ? 'Incorrect Password' : ''}
