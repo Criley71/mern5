@@ -77,15 +77,16 @@ function Register() {
                     <br />
                     <div className="submit-container">
                         <Link to='/login'>
-                        <button type='submit' className='submit'>
+                        <button type='submit' className='submit' disabled={!name || !email || !password}>
                             Sign Up
                         </button>
                         </Link>
                     </div>
                     <br />
                     <div className="submit-container">
+                        <p>Already have an Account?</p>
                         <Link to="/login">
-                            <button className='submit' disabled={!name && !email && !password}>
+                            <button className='submit' >
                                 Login
                             </button>
                         </Link>
