@@ -6,6 +6,7 @@ import validation from './LoginValidation';
 import user_icon from './person.png';
 import email_icon from './email.png';
 import password_icon from './password.png';
+import './Login.css'
 function Login() {
     const [values, setValues] = useState({
         email: '',
@@ -44,58 +45,63 @@ function Login() {
 
     return (
         <div className="container">
-            <div className="header">
+            <div className='header'>
                 <h2 className="text">Login</h2>
-                <div className="underline"></div>
-                <form onSubmit={handleSubmit} className="inputs">
-                    <div className="input">
-                        <img src={email_icon} alt="" />
-                        <label htmlFor='email'>
-                            <strong>Email</strong>
-                        </label>
-                        <input
-                            type='email'
-                            placeholder='Enter Email'
-                            autoComplete='off'
-                            name='email'
-                            className='from-control rounded-0'
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
+            </div>
+            <div className="underline"></div>
 
-                    </div>
-                    <div className="input">
-                        <label htmlFor='password'>
-                            <img src={password_icon} alt="" />
-                            <strong>Password</strong>
-                        </label>
-                        <input
-                            type='password'
-                            placeholder='Enter Password'
-                            autoComplete='off'
-                            name='password'
-                            className='from-control rounded-0'
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
+            <form onSubmit={handleSubmit} className="inputs">
+                <div className="input">
+                    <img src={email_icon} alt="" />
+                    <label htmlFor='email'>
+                        <strong>Email</strong>
+                    </label>
+                    <input
+                        type='email'
+                        placeholder='Enter Email'
+                        autoComplete='off'
+                        name='email'
+                        className='text-box'
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
 
-                    </div >
-                    <div className="submit-container">
-                    <button type='submit' className='subbtn'>
+                </div>
+                <div className="input">
+                    <img src={password_icon} alt="" />
+                    <label htmlFor='password'>
+                        <strong>Password</strong>
+                    </label>
+                    <input
+                        type='password'
+                        placeholder='Enter Password'
+                        autoComplete='off'
+                        name='password'
+                        className='text-box'
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+
+                </div >
+                <div className='submit-container'>
+                    <button type='submit' className='submit'>
                         Login
                     </button>
-                    </div>
-                </form>
-                <Link to="/">
-                    <button className='btn'>
-                        Register
-                    </button>
-                </Link>
-                <div>
-                    {emailError ? 'Incorrect email' : ''}
                 </div>
-                <div>
-                    {passError ? 'Incorrect Password' : ''}
+                <div className='submit-container'>
+                    <Link to="/">
+                        <button className='submit'>
+                            Register
+                        </button>
+                    </Link>
                 </div>
+            </form>
+
+            <div>
+                {emailError ? 'Incorrect email' : ''}
             </div>
+            <div>
+                {passError ? 'Incorrect Password' : ''}
+            </div>
+
         </div>
     )
 }
