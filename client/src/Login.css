@@ -118,13 +118,18 @@ body {
     border-radius: 25px; /* Rounded button */
     font-size: 18px;
     font-weight: 700;
-    cursor: pointer;
+    
     text-transform: uppercase;
     transition: background 0.3s ease;
-    margin-top: 20px;
+    margin-bottom: 20px;
   }
   
-  .submit:hover {
+  .submit:disabled {
+    background: #4573a1;
+  }
+  
+  .submit:hover:enabled {
+    cursor: pointer;
     background: #007acc; /* Darker blue on hover */
   }
   

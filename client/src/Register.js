@@ -83,8 +83,9 @@ function Register() {
                         </Link>
                     </div>
                     <br />
+                    <p>Already have an Account?</p>
                     <div className="submit-container">
-                        <p>Already have an Account?</p>
+                        
                         <br></br>
                         <Link to="/login">
                             <button className='submit' >
