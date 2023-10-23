@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Link, useNavigate, } from "react-router-dom";
+import { Link, useNavigate, useHistory} from "react-router-dom";
 import axios from 'axios'
 import user_icon from './person.png';
 import email_icon from './email.png';
@@ -15,10 +15,12 @@ function Register() {
     const [passError, setPassError] = useState(false)
     axios.defaults.withCredentials = true;
     const handleSubmit = (e) => {
+        const history = useHistory()
         e.preventDefault()
         axios.post('https://mern5-api.vercel.app/register', { name, email, password })
             .then(result => console.log(result))
             .catch(err => console.log(err))
+        history.push('/login')
     }
     return (
         <>
@@ -76,11 +78,11 @@ function Register() {
                     </div>
                     <br />
                     <div className="submit-container">
-                        <Link to='/login'>
+                        
                         <button type='submit' className='submit' disabled={!name || !email || !password}>
                             Sign Up
                         </button>
-                        </Link>
+                        
                     </div>
                     <br />
                     <p>Already have an Account?</p>

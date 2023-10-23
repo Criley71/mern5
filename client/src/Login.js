@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useHistory } from 'react-router-dom'
 import './LoginValidation'
 import validation from './LoginValidation';
 import user_icon from './person.png';
@@ -40,6 +40,7 @@ function Login() {
                 }
             })
             .catch(err => console.log(err))
+            
     }
 
 
@@ -49,8 +50,8 @@ function Login() {
                 <h1 className="text">Login</h1>
             </div>
             <div className="underline"></div>
-
-            <form onSubmit={handleSubmit} className="inputs">
+            <div className='inputs'>
+            <form onSubmit={handleSubmit}>
                 <div className="input">
                     <img src={email_icon} alt="" />
                     <label htmlFor='email'>
@@ -86,15 +87,16 @@ function Login() {
                         Login
                     </button>
                 </div>
-                <div className='submit-container'>
-                    <Link to="/">
-                        <button className='submit'>
-                            Register
-                        </button>
-                    </Link>
-                </div>
-            </form>
 
+            </form>
+            <div className='submit-container'>
+                <Link to="/">
+                    <button className='submit'>
+                        Register
+                    </button>
+                </Link>
+            </div>
+            </div>
             <div>
                 {emailError ? 'Incorrect email' : ''}
             </div>
