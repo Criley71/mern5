@@ -1,6 +1,10 @@
 import { React, useState } from "react";
 import { Link, useNavigate, } from "react-router-dom";
 import axios from 'axios'
+import user_icon from './person.png';
+import email_icon from './email.png';
+import password_icon from './password.png';
+import './Login.css'
 
 function Register() {
     const [name, setName] = useState('');
@@ -18,38 +22,74 @@ function Register() {
     }
     return (
         <>
-            <div className='App'>
-                <h1>Register</h1>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type='text'
-                        placeholder='name'
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <br />
-                    <input
-                        type='email'
-                        placeholder='email'
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <br />
-                    <input
-                        type='password'
-                        placeholder='password'
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <br />
-                    <button type='submit' className='btn'>
-                        Register
-                    </button>
-                    <br />
+            <div className='container'>
+                <div className="header">
+                    <h1 className="text">Register</h1>
+                </div>
+                <div className="underline"></div>
 
+                <form onSubmit={handleSubmit} className="inputs">
+                    <div className="input">
+                        <img src={user_icon} alt="" />
+                        <label htmlFor="name">
+                            <strong>Name</strong>
+                        </label>
+                        <input
+                            type='text'
+                            autoComplete='off'
+                            placeholder='Enter Name'
+                            name='name'
+                            className="text-box"
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+
+                    <br />
+                    <div className="input">
+                        <img src={email_icon} alt="" />
+                        <label htmlFor="email">
+                            <strong>Email</strong>
+                        </label>
+                        <input
+                            type='email'
+                            placeholder='Enter Email'
+                            autoComplete="off"
+                            name="email"
+                            className="text-box"
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <br />
+                    <div className="input">
+                        <img src={password_icon} alt="" />
+                        <label htmlFor="password">
+                            <strong>Password</strong>
+                        </label>
+                        <input
+                            type='password'
+                            placeholder='Enter Password'
+                            autoComplete='off'
+                            name='password'
+                            className='text-box'
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <br />
+                    <div className="submit-container">
+                        <button type='submit' className='submit'>
+                            Sign Up
+                        </button>
+                    </div>
+                    <br />
+                    <div className="submit-container">
+                        <Link to="/login">
+                            <button className='submit'>
+                                Login
+                            </button>
+                        </Link>
+                    </div>
                 </form>
-                <Link to="/login">
-                    <button className='btn'>
-                        Login
-                    </button>
-                </Link>
+
             </div>
         </>
     )
