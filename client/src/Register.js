@@ -13,9 +13,9 @@ function Register() {
     const [nameError, setNameError] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [passError, setPassError] = useState(false)
+    const navigate = useNavigate();
     axios.defaults.withCredentials = true;
     const handleSubmit = (e) => {
-        const navigate = useNavigate();
         e.preventDefault()
         axios.post('https://mern5-api.vercel.app/register', { name, email, password })
             .then(result => console.log(result))
