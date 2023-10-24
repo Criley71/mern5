@@ -52,14 +52,14 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/survey', (req, res) => {
-    const { email, mealData } = req.body;
-
+    //const { email, mealData } = req.body;
+    const email = "array9@gmail.com"
 
     RegisterModel.findOneAndUpdate({
         email: email
     }, {
         $push: {
-            meals: mealData
+            meals: ['mname', 'mtime', 'itime', 'idose', 'carb']
         }
     })
     res.json("cool")

@@ -10,7 +10,7 @@ function Survey() {
   const [insulintime, setInsulinTime] = useState('');
   const [insulindose, setInsulinDose] = useState('');
   const [carbcount, setCarbCount] = useState('');
-  
+
   const [form, setForm] = useState({
     mealName: '',
     mealTime: '',
@@ -19,13 +19,18 @@ function Survey() {
     carbCount: ''
   })
   const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value })
+    setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-
+  const testSubmit = (e) => {
+    e.preventDefault()
+    axios.post('https://mern5-api.vercel.app/survey')
+      .then(result => console.log(result))
+      .catch(err => console.log(err))
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     setForm(mealtime, mealtime, insulintime, insulindose, carbcount)
     axios.post('https://mern5-api.vercel.app/survey', { email, form })
       .then(result => console.log(result))
@@ -54,13 +59,13 @@ function Survey() {
       setCarbCount("");
     }
   }
-/*
-  console.log(mealname);
-  console.log(mealtime);
-  console.log(insulintime);
-  console.log(Number(insulindose));
-  console.log(Number(carbcount));
-*/
+  /*
+    console.log(mealname);
+    console.log(mealtime);
+    console.log(insulintime);
+    console.log(Number(insulindose));
+    console.log(Number(carbcount));
+  */
   return (
     <main>
       <div>
@@ -68,7 +73,7 @@ function Survey() {
           <h2>Meal Survey</h2> <br></br>
 
           <h3>email</h3>
-          <input type ="text" value={email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" />
+          <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" />
 
           <h3>Meal Name: </h3>
           <input type="text" value={mealname} onChange={(e) => setMealName(e.target.value)} id="meal_name" />
@@ -87,6 +92,7 @@ function Survey() {
 
           <br></br><button type="submit">submit</button>
         </form>
+        <br></br><button type="submit" onSubmit={testSubmit}>submit Test</button>
       </div>
     </main>
   );

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 const mealSchema = new mongoose.Schema({
     mealName: String,
-    mealTime: Number,
-    insulinTime: Number,
-    dosage: Number,
-    carbCount: Number
+    mealTime: String,
+    insulinTime: String,
+    dosage: String,
+    carbCount: String
 })
 const RegisterSchema = new mongoose.Schema({
     name: String,
