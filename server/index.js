@@ -57,7 +57,7 @@ app.post('/survey', (req, res) => {
         .then(user=>{
             if(user){
                 res.json("add")
-                RegisterModel.findOneAndUpdate( {
+                RegisterModel.Update( {
                     email: email
                 }, {
                     $push: {
