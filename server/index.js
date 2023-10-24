@@ -54,12 +54,13 @@ app.post('/register', (req, res) => {
 app.put('/survey', (req, res) => {
     //const { email, mealData } = req.body;
     const email = "array12gmail.com"
-    RegisterModel.db.collection.insert
-    RegisterModel.findOneAndUpdate({
-        email: email
-    }, {
-        $push: {
-            meals: { 'mealName': 'mname', 'mealTime':'mtime', 'insulinTime': 'itime','dosage': 'idose','carbCount': 'carb'}
+    var mealVar = { mealName: 'mname', mealTime:'mtime', insulinTime: 'itime',dosage: 'idose',carbCount: 'carb'}
+    RegisterModel.findOneAndUpdate({email: email}, {$push: {meals: mealVar }}, function (err, succ){
+        if (err){
+            console.log(err)
+        }
+        else {
+            console.log(succ)
         }
     })
     res.json("cool")
