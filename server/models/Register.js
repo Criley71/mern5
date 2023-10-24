@@ -10,7 +10,7 @@ const RegisterSchema = new mongoose.Schema({
     name: String,
     email: String,
     password: String,
-    meals: [mealSchema]
+    meals: [String]
 
 })
 
