@@ -7,7 +7,7 @@ const app = express()
 
 app.use(cors(
     {
-        origin: ["https://mern5-frontend.vercel.app", "https://mern5-frontend.vercel.app/login"],
+        origin: ["https://mern5-frontend.vercel.app", "https://mern5-frontend.vercel.app/login", "https://mern5-frontend.vercel.app/home/survey"],
         methods: ["POST", "GET"],
         credentials: true
     }
@@ -62,7 +62,7 @@ app.post('/survey', (req, res) => {
             meals: mealData
         }
     })
-
+    res.json("cool")
 })
 
 app.listen(8000, () => {
