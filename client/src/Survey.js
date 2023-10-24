@@ -10,16 +10,16 @@ function Survey() {
   const [insulintime, setInsulinTime] = useState('');
   const [insulindose, setInsulinDose] = useState('');
   const [carbcount, setCarbCount] = useState('');
-  const initialForm = {
+  
+  const [form, setForm] = useState({
     mealName: '',
-    mealTime: 0,
-    insulinTime: 0,
-    insulinDose: 0,
-    carbCount: 0
-  }
-  const [form, setForm] = useState(initialForm)
+    mealTime: '',
+    insulinTime: '',
+    insulinDose: '',
+    carbCount: ''
+  })
   const handleChange = (e) => {
-    e.preventDefault()
+  
     setForm({...form, [e.target.name]: e.target.value })
   }
 
