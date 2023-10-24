@@ -19,13 +19,14 @@ function Survey() {
     carbCount: ''
   })
   const handleChange = (e) => {
-  
     setForm({...form, [e.target.name]: e.target.value })
   }
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    setForm(mealtime, mealtime, insulintime, insulindose, carbcount)
     axios.post('https://mern5-api.vercel.app/survey', { email, form })
       .then(result => console.log(result))
       .catch(err => console.log(err))
@@ -70,19 +71,19 @@ function Survey() {
           <input type ="text" value={email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" />
 
           <h3>Meal Name: </h3>
-          <input type="text" value={form.mealName} onChange={handleChange} id="meal_name" />
+          <input type="text" value={mealname} onChange={(e) => setMealName(e.target.value)} id="meal_name" />
 
           <h3>Time of Meal: </h3>
-          <input type="time" value={form.mealTime} onChange={handleChange} name="meal_time" />
+          <input type="time" value={mealtime} onChange={(e) => setMealTime(e.target.value)} name="meal_time" />
 
           <h3>Time of Insulin Dosage: </h3>
-          <input type="time" value={form.insulinTime} onChange={handleChange} name="ins_time" />
+          <input type="time" value={insulintime} onChange={(e) => setInsulinTime(e.target.value)} name="ins_time" />
 
           <h3>Insulin dosage: </h3>
-          <input type="number" value={form.insulinDose} onChange={handleChange} />
+          <input type="number" value={insulindose} onChange={(e) => setInsulinDose(e.target.value)} />
 
           <h3>Carb count: </h3>
-          <input type="number" value={form.carbCount} onChange={handleChange} />
+          <input type="number" value={carbcount} onChange={(e) => setCarbCount(e.target.value)} />
 
           <br></br><button type="submit">submit</button>
         </form>
