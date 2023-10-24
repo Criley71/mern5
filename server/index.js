@@ -51,10 +51,10 @@ app.post('/register', (req, res) => {
         .catch(error => res.json(error))
 })
 
-app.post('/survey', (req, res) => {
+app.put('/survey', (req, res) => {
     //const { email, mealData } = req.body;
-    const email = "array11gmail.com"
-
+    const email = "array12gmail.com"
+    RegisterModel.db.collection.insert
     RegisterModel.findOneAndUpdate({
         email: email
     }, {
