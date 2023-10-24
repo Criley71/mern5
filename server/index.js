@@ -24,10 +24,10 @@ app.post('/login', (req, res) => {
     const { email, password } = req.body;
     RegisterModel.findOne({ email: email })
         .then(user => {
-            if(user){
-                if(user.password === password){
+            if (user) {
+                if (user.password === password) {
                     res.json("Success")
-                }else {
+                } else {
                     res.json("Incorrect Password")
                 }
             } else {
@@ -52,24 +52,17 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/survey', (req, res) => {
-    const {email, mealData} = req.body;
-    RegisterModel.findOne({email: email})
-        .then(user=>{
-            if(user){
-                res.json("add")
-                RegisterModel.findOneAndUpdate( {
-                    email: email
-                }, {
-                    $push: {
-                        meals: mealData 
-                    }
-                })
-            } else {
-                res.json('cant add')
-            }
-        })
-    
-    
+    const { email, mealData } = req.body;
+
+
+    RegisterModel.findOneAndUpdate({
+        email: email
+    }, {
+        $push: {
+            meals: mealData
+        }
+    })
+
 })
 
 app.listen(8000, () => {
