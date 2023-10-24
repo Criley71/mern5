@@ -51,11 +51,11 @@ app.post('/register', (req, res) => {
         .catch(error => res.json(error))
 })
 
-app.put('/survey', (req, res) => {
+app.post('/survey', (req, res) => {
     //const { email, mealData } = req.body;
     const email = "array12gmail.com"
     var mealVar = { mealName: 'mname', mealTime:'mtime', insulinTime: 'itime',dosage: 'idose',carbCount: 'carb'}
-    RegisterModel.findOneAndUpdate({email: email}, {$push: {meals: mealVar }}, function (err, succ){
+    RegisterModel.findOneAndUpdate({email: email}, {$push: {meals: mealVar }}, {upsert: true}, function (err, succ){
         if (err){
             console.log(err)
         }
