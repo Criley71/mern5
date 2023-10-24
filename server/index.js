@@ -53,7 +53,7 @@ app.post('/register', (req, res) => {
 
 app.post('/survey', (req, res) => {
     //const { email, mealData } = req.body;
-    const email = "array12gmail.com"
+    const email = "array12@gmail.com"
     var mealVar = { mealName: 'mname', mealTime:'mtime', insulinTime: 'itime',dosage: 'idose',carbCount: 'carb'}
     RegisterModel.findOneAndUpdate({email: email}, {$push: {meals: mealVar }}, {upsert: true}, function (err, succ){
         if (err){
