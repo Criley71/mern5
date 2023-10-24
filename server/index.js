@@ -27,6 +27,8 @@ app.post('/login', (req, res) => {
             if(user){
                 if(user.password === password){
                     res.json("Success")
+                    let userName = user.email
+                    let userPassword = user.password
                 }else {
                     res.json("Incorrect Password")
                 }
@@ -52,15 +54,10 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/survey', (req, res) => {
-    RegisterModel.findByIdAndUpdate(req.body._id, 
-        {meals: req.body.meals}, function (err, data) {
-            if(err){
-                console.log(err)
-            }
-            else {
-                res.send(data);
-                console.log("data updated")
-            }
+    const email = req.body;
+    RegisterModel.findOneAndUpdate( {email: email})
+        .then(user => {
+            user.meals.push(res.json)
         })
 })
 

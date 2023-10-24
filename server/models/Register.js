@@ -1,16 +1,16 @@
 const mongoose = require('mongoose')
-
+const mealSchema = new mongoose.Schema({
+    mealName: String,
+    mealTime: Number,
+    insulinTime: Number,
+    dosage: Number,
+    carbCount: Number
+})
 const RegisterSchema = new mongoose.Schema({
     name: String,
     email: String,
     password: String,
-    meals: [{
-        mealName: String,
-        mealTime: Int16Array,
-        insulinTime: Int16Array,
-        dosage: Int16Array,
-        carbCount: Int16Array
-    }]
+    meals: [mealSchema]
 
 })
 

@@ -9,7 +9,11 @@ function Survey() {
     const [insulintime, setinst] = useState('');
     const [insulindose, setinsd] = useState('');  
     const [carbcount, setcarbc] = useState('');
-
+    const [formData, setFormData] = useState({
+      mealName: "",
+      mealTime: ""
+      
+    })
     // This is super inefficient but I literally can't find any examples online of how to do this
     // simpler so I'll keep researching it but if anyone has any tips lmk
     const mealnChange = event => {
