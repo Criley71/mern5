@@ -20,13 +20,14 @@ function Survey() {
   }
   const [form, setForm] = useState(initialForm)
   const handleChange = (e) => {
+    e.preventDefault()
     setForm({...form, [e.target.name]: e.target.value })
   }
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://mern5-api.vercel.app/survey/:_id', { email, form })
+    axios.post('https://mern5-api.vercel.app/survey', { email, form })
       .then(result => console.log(result))
       .catch(err => console.log(err))
   }
