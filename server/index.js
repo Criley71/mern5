@@ -51,6 +51,19 @@ app.post('/register', (req, res) => {
         .catch(error => res.json(error))
 })
 
+app.post('/survey', (req, res) => {
+    RegisterModel.findByIdAndUpdate(req.body._id, 
+        {meals: req.body.meals}, function (err, data) {
+            if(err){
+                console.log(err)
+            }
+            else {
+                res.send(data);
+                console.log("data updated")
+            }
+        })
+})
+
 app.listen(8000, () => {
     console.log("server is running")
 })

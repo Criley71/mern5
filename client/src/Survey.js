@@ -1,43 +1,86 @@
-import React from 'react'
+import { React, useState } from 'react'
 import './Survey.css';
+import axios from 'axios';
+
 
 function Survey() {
-    return (
-        <main>
-            <div>
-                <h1>
-                    Survey
-                </h1>
-            </div>
-            <div>
-                <form>
-                    <h2>As we do not have questions written out at this time, please enjoy
-                        some complimentary sample survey questions</h2> <br></br>
-                    <h3>Here are some radio buttons:</h3>
-                    <input type="radio" id="rex1" name="example_radio" value="REX1" />
-                    <label for="rex1">Excellent!</label><br></br>
-                    <input type="radio" id="rex2" name="example_radio" value="REX2" />
-                    <label for="rex2">Could be better...</label><br></br>
-                    <input type="radio" id="rex3" name="example_radio" value="REX3" />
-                    <label for="rex3">No comment</label><br></br>
+    const [mealname, setmealn] = useState('');
+    const [mealtime, setmealt] = useState('');
+    const [insulintime, setinst] = useState('');
+    const [insulindose, setinsd] = useState('');  
+    const [carbcount, setcarbc] = useState('');
 
-                    <h3>Write whatever is desired</h3>
-                    <input type="text" id="tex" name="example_text" />
+    // This is super inefficient but I literally can't find any examples online of how to do this
+    // simpler so I'll keep researching it but if anyone has any tips lmk
+    const mealnChange = event => {
+      setmealn(event.target.value);
+    };
+    const mealtChange = event => {
+      setmealt(event.target.value);
+      };
+    const instChange = event => {
+      setinst(event.target.value);
+      };
+    const insdChange = event => {
+      setinsd(event.target.value);
+      }
+    const carbcChange = event => {
+      setcarbc(event.target.value);
+    };
+    const handleOnSubmit = async (e) => {
+      e.preventDefault();
+      let result = await fetch(
+      'http://localhost:5000/register', {
+          method: "post",
+          body: JSON.stringify({ mealname, mealtime, insulintime, insulindose, carbcount }),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      })
+      result = await result.json();
+      console.warn(result);
+      if (result) {
+        alert("Data saved succesfully");
+        setmealn("");
+        setmealt("");
+        setinst("");
+        setinsd("");
+        setcarbc("");
+    }
+  }
+  
+    console.log(mealname);
+    console.log(mealtime);
+    console.log(insulintime);
+    console.log(Number(insulindose));
+    console.log(Number(carbcount));
 
-                    <h3>Here are some checkboxes</h3>
-                    <input type="checkbox" id="cex1" name="cex1" value="CEX1" />
-                    <label for="cex1">Selection 1</label><br></br>
-                    <input type="checkbox" id="cex2" name="cex2" value="CEX2" />
-                    <label for="cex2">Selection 2</label><br></br>
-                    <input type="checkbox" id="cex3" name="cex3" value="CEX3" />
-                    <label for="cex3">Selection 3</label><br></br>
+  return (
+    <main>
+      <div>
+        <form>
+            <h2>Meal Survey</h2> <br></br>
 
-                    <br></br><button type="submit">Submit Answers</button>
-                </form>
-            </div>
-            
-        </main>
-    )
+            <h3>Meal Name: </h3>
+            <input type="text" value={mealname} onChange={mealnChange} id="meal_name" name="meal_name"/>
+
+            <h3>Time of Meal: </h3>
+            <input type="time" value={mealtime} onChange={mealtChange} name="meal_time"/>
+
+            <h3>Time of Insulin Dosage: </h3>
+            <input type="time" value={insulintime} onChange={instChange} name="ins_time"/>
+
+            <h3>Insulin dosage: </h3>
+            <input type="number" value={insulindose} onChange={insdChange}/>
+
+            <h3>Carb count: </h3>
+            <input type="number" value={carbcount} onChange={carbcChange}/>
+
+            <br></br><button type = "submit" onClick={handleOnSubmit}>submit</button>
+        </form>
+      </div>
+    </main>
+  );
 }
 
 export default Survey
