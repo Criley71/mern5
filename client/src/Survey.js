@@ -67,22 +67,22 @@ function Survey() {
           <h2>Meal Survey</h2> <br></br>
 
           <h3>email</h3>
-          <input type ="text" value={email} onChange={handleChange} id="email" name="email" />
+          <input type ="text" value={form.email} onChange={handleChange} id="email" name="email" />
 
           <h3>Meal Name: </h3>
-          <input type="text" value={mealName} onChange={handleChange} id="meal_name" name="meal_name" />
+          <input type="text" value={form.mealName} onChange={handleChange} id="meal_name" name="meal_name" />
 
           <h3>Time of Meal: </h3>
-          <input type="time" value={mealtime} onChange={handleChange} name="meal_time" />
+          <input type="time" value={form.mealtime} onChange={handleChange} name="meal_time" />
 
           <h3>Time of Insulin Dosage: </h3>
-          <input type="time" value={insulintime} onChange={handleChange} name="ins_time" />
+          <input type="time" value={form.insulintime} onChange={handleChange} name="ins_time" />
 
           <h3>Insulin dosage: </h3>
-          <input type="number" value={insulindose} onChange={handleChange} />
+          <input type="number" value={form.insulindose} onChange={handleChange} />
 
           <h3>Carb count: </h3>
-          <input type="number" value={carbcount} onChange={handleChange} />
+          <input type="number" value={form.carbcount} onChange={handleChange} />
 
           <br></br><button type="submit">submit</button>
         </form>
