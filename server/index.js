@@ -59,7 +59,7 @@ app.post('/survey', (req, res) => {
         email: email
     }, {
         $push: {
-            meals: ['mname', 'mtime', 'itime', 'idose', 'carb']
+            meals: { 'mealName': 'mname', 'mealTime':'mtime', 'insulinTime': 'itime','dosage': 'idose','carbCount': 'carb'}
         }
     })
     res.json("cool")
