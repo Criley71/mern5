@@ -54,13 +54,13 @@ function Survey() {
       setCarbCount("");
     }
   }
-
+/*
   console.log(mealname);
   console.log(mealtime);
   console.log(insulintime);
   console.log(Number(insulindose));
   console.log(Number(carbcount));
-
+*/
   return (
     <main>
       <div>
