@@ -31,7 +31,7 @@ function Survey() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setForm(mealtime, mealtime, insulintime, insulindose, carbcount)
+    setForm('mealnime', 'mealtime', 'insulintime', 'insulindose', 'carbcount')
     axios.post('https://mern5-api.vercel.app/survey', { email, form })
       .then(result => console.log(result))
       .catch(err => console.log(err))
