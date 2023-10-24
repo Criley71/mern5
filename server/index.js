@@ -52,10 +52,10 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/survey', (req, res) => {
-    //const { email, mealData } = req.body;
-    const email = "array12@gmail.com"
+    const { email, mealData } = req.body;
+    const email2 = "array12@gmail.com"
     var mealVar = { mealName: 'mname', mealTime:'mtime', insulinTime: 'itime',dosage: 'idose',carbCount: 'carb'}
-    RegisterModel.findOneAndUpdate({email: email}, {$push: {meals: mealVar }}, {upsert: true}, function (err, succ){
+    RegisterModel.findOneAndUpdate({email: email2}, {$push: {meals: mealVar }}, {upsert: true}, function (err, succ){
         if (err){
             console.log(err)
         }
@@ -64,6 +64,15 @@ app.post('/survey', (req, res) => {
         }
     })
     res.json("cool")
+    RegisterModel.findOneAndUpdate({email: email}, {$push: {mealData }}, {upsert: true}, function (err, succ){
+        if (err){
+            console.log(err)
+        }
+        else {
+            console.log(succ)
+        }
+    })
+    res.json("cool2")
 })
 
 app.listen(8000, () => {
