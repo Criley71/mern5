@@ -27,8 +27,6 @@ app.post('/login', (req, res) => {
             if(user){
                 if(user.password === password){
                     res.json("Success")
-                    let userName = user.email
-                    let userPassword = user.password
                 }else {
                     res.json("Incorrect Password")
                 }
@@ -54,11 +52,24 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/survey', (req, res) => {
-    const email = req.body;
-    RegisterModel.findOneAndUpdate( {email: email})
-        .then(user => {
-            user.meals.push(res.json)
+    const {email, mealData} = req.body;
+    RegisterModel.findOne({email: email})
+        .then(user=>{
+            if(user){
+                res.json("add")
+                RegisterModel.findOneAndUpdate( {
+                    email: email
+                }, {
+                    $push: {
+                        meals: mealData 
+                    }
+                })
+            } else {
+                res.json('cant add')
+            }
         })
+    
+    
 })
 
 app.listen(8000, () => {

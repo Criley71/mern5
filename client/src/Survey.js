@@ -4,33 +4,22 @@ import axios from 'axios';
 
 
 function Survey() {
-    const [mealname, setmealn] = useState('');
-    const [mealtime, setmealt] = useState('');
-    const [insulintime, setinst] = useState('');
-    const [insulindose, setinsd] = useState('');  
-    const [carbcount, setcarbc] = useState('');
-    const [formData, setFormData] = useState({
-      mealName: "",
-      mealTime: ""
-      
-    })
+    const [mealname, setMealName] = useState('');
+    const [mealtime, setMealTime] = useState('');
+    const [insulintime, setInsulinTime] = useState('');
+    const [insulindose, setInsulinDose] = useState('');  
+    const [carbcount, setCarbCount] = useState('');
+   
+  
     // This is super inefficient but I literally can't find any examples online of how to do this
     // simpler so I'll keep researching it but if anyone has any tips lmk
-    const mealnChange = event => {
-      setmealn(event.target.value);
-    };
-    const mealtChange = event => {
-      setmealt(event.target.value);
-      };
-    const instChange = event => {
-      setinst(event.target.value);
-      };
-    const insdChange = event => {
-      setinsd(event.target.value);
-      }
-    const carbcChange = event => {
-      setcarbc(event.target.value);
-    };
+    
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      axios.post('https://mern5-api.vercel.app/survey', {email, mealname})
+        .then()
+    }
+
     const handleOnSubmit = async (e) => {
       e.preventDefault();
       let result = await fetch(
@@ -45,11 +34,11 @@ function Survey() {
       console.warn(result);
       if (result) {
         alert("Data saved succesfully");
-        setmealn("");
-        setmealt("");
-        setinst("");
-        setinsd("");
-        setcarbc("");
+        setMealName("");
+        setMealTime("");
+        setInsulinTime("");
+        setInsulinDose("");
+        setCarbCount("");
     }
   }
   
@@ -62,25 +51,25 @@ function Survey() {
   return (
     <main>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
             <h2>Meal Survey</h2> <br></br>
 
             <h3>Meal Name: </h3>
-            <input type="text" value={mealname} onChange={mealnChange} id="meal_name" name="meal_name"/>
+            <input type="text" value={mealname} onChange={(e) => setMealName(e.target.value)} id="meal_name" name="meal_name"/>
 
             <h3>Time of Meal: </h3>
-            <input type="time" value={mealtime} onChange={mealtChange} name="meal_time"/>
+            <input type="time" value={mealtime} onChange={(e) => setMealTime(e.target.value)} name="meal_time"/>
 
             <h3>Time of Insulin Dosage: </h3>
-            <input type="time" value={insulintime} onChange={instChange} name="ins_time"/>
+            <input type="time" value={insulintime} onChange={(e) => setInsulinTime(e.target.value)} name="ins_time"/>
 
             <h3>Insulin dosage: </h3>
-            <input type="number" value={insulindose} onChange={insdChange}/>
+            <input type="number" value={insulindose} onChange={(e) => setInsulinDose(e.target.value)}/>
 
             <h3>Carb count: </h3>
-            <input type="number" value={carbcount} onChange={carbcChange}/>
+            <input type="number" value={carbcount} onChange={(e) => setCarbCount(e.target.value)}/>
 
-            <br></br><button type = "submit" onClick={handleOnSubmit}>submit</button>
+            <br></br><button type = "submit">submit</button>
         </form>
       </div>
     </main>
