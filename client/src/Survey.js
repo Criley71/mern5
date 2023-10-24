@@ -73,16 +73,16 @@ function Survey() {
           <input type="text" value={form.mealName} onChange={handleChange} id="meal_name" />
 
           <h3>Time of Meal: </h3>
-          <input type="time" value={form.mealtime} onChange={handleChange} name="meal_time" />
+          <input type="time" value={form.mealTime} onChange={handleChange} name="meal_time" />
 
           <h3>Time of Insulin Dosage: </h3>
-          <input type="time" value={form.insulintime} onChange={handleChange} name="ins_time" />
+          <input type="time" value={form.insulinTime} onChange={handleChange} name="ins_time" />
 
           <h3>Insulin dosage: </h3>
-          <input type="number" value={form.insulindose} onChange={handleChange} />
+          <input type="number" value={form.insulinDose} onChange={handleChange} />
 
           <h3>Carb count: </h3>
-          <input type="number" value={form.carbcount} onChange={handleChange} />
+          <input type="number" value={form.carbCount} onChange={handleChange} />
 
           <br></br><button type="submit">submit</button>
         </form>
