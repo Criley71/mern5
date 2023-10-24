@@ -53,7 +53,7 @@ app.post('/register', (req, res) => {
 
 app.post('/survey', (req, res) => {
     //const { email, mealData } = req.body;
-    const email = "array10gmail.com"
+    const email = "array11gmail.com"
 
     RegisterModel.findOneAndUpdate({
         email: email
