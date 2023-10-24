@@ -24,7 +24,7 @@ function Survey() {
 
   const testSubmit = (e) => {
     e.preventDefault()
-    axios.post('https://mern5-api.vercel.app/survey')
+    axios.put('https://mern5-api.vercel.app/survey')
       .then(result => console.log(result))
       .catch(err => console.log(err))
   }
@@ -32,7 +32,7 @@ function Survey() {
     e.preventDefault();
 
     setForm(mealtime, mealtime, insulintime, insulindose, carbcount)
-    axios.post('https://mern5-api.vercel.app/survey', { email, form })
+    axios.put('https://mern5-api.vercel.app/survey', { email, form })
       .then(result => console.log(result))
       .catch(err => console.log(err))
   }
