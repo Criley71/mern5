@@ -44,7 +44,7 @@ app.post('/register', (req, res) => {
             if (user) {
                 res.json("already have account")
             } else {
-                RegisterModel.create({ name: name, email: email, password: password })
+                RegisterModel.create({ name: name, email: email, password: password, meals: ["mealName", "mtime", "itime", "dose", "ccount"] })
                     .then(result => res.json(result))
                     .catch(err => res.json(err))
             }
