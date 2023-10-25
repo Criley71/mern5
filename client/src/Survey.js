@@ -1,8 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
-
-import axios from 'axios';
-
+import { React, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios'
+import user_icon from './person.png';
+import email_icon from './email.png';
+import password_icon from './password.png';
+import './Login.css'
 
 function Survey() {
   const [email, setEmail] = useState('');
