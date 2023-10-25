@@ -9,7 +9,7 @@ const app = express()
 app.use(cors(
     {
         origin: ["https://mern5-frontend.vercel.app", "https://mern5-frontend.vercel.app/login", "https://mern5-frontend.vercel.app/home/survey", "*", "https://mern5-frontend.vercel.app/"],
-        methods: ["POST", "GET", "*"],
+        methods: ["GET", "HEAD", "OPTIONS", "POST", "PUT", "DELETE"],
         credentials: true
     }
 ))
@@ -37,7 +37,7 @@ app.post('/login', (req, res) => {
         })
 })
 
-app.post('/register', (req, res) => {
+app.post('/register', jsonParser, (req, res) => {
     const { name, email, password } = req.body;
     RegisterModel.findOne({ email: email })
         .then(user => {
@@ -60,9 +60,9 @@ app.post('/survey', (req, res) => {
         .catch(err => res.json(err))
     RegisterModel.findOneAndUpdate(
         { email: email },
-        { $push: { meals: form } }, 
+        { "$push": { meals: form } },
         function (error, success) {
-            if(error){
+            if (error) {
                 res.json(error)
                 console.log(error)
             } else {
