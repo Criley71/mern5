@@ -1,16 +1,16 @@
-import { React, useState } from 'react'
+import { React, useState } from 'react';
 
 import axios from 'axios';
 
 
 function Survey() {
   const [email, setEmail] = useState('');
-  const [mealName, setMealName] = useState('')
-  const [mealTime, setMealTime] = useState('')
-  const [insulinTime, setInsulinTime] = useState('')
-  const [insulinDose, setInsulinDose] = useState('')
-  const [carbCount, setCarbCount] = useState('')
-  const [formData, setFormData] = useState = ('')
+  const [mealName, setMealName] = useState('');
+  const [mealTime, setMealTime] = useState('');
+  const [insulinTime, setInsulinTime] = useState('');
+  const [insulinDose, setInsulinDose] = useState('');
+  const [carbCount, setCarbCount] = useState('');
+  const [formData, setFormData] = useState = ('');
   axios.defaults.withCredentials = true;
 
   function handleSubmit(e) {
