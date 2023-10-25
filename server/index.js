@@ -23,6 +23,8 @@ app.use((req, res, next) => {
     return next();
 });
 
+
+
 app.use(express.json())
 
 mongoose.connect(process.env.MONGODB)
