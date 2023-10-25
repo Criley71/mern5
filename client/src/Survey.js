@@ -14,7 +14,7 @@ function Survey() {
   const [formData, setFormData] = useState = ('');
   axios.defaults.withCredentials = true;
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('https://mern5-api.vercel.app/survey', { email, mealName, mealTime, insulinTime, insulinDose, carbCount })
       .then(result => console.log(result))
