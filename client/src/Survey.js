@@ -1,10 +1,10 @@
 import { React, useState } from 'react'
-import './Survey.css';
+
 import axios from 'axios';
 
 
 function Survey() {
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('');
   const [mealName, setMealName] = useState('')
   const [mealTime, setMealTime] = useState('')
   const [insulinTime, setInsulinTime] = useState('')
