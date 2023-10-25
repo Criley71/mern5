@@ -127,7 +127,7 @@ function Survey() {
           <div className="submit-container">
 
             <button type='submit' className='submit' >
-              Sign Up
+              submit
             </button>
 
           </div>
