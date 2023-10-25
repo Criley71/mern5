@@ -8,98 +8,135 @@ import './Login.css'
 
 function Survey() {
   const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [nameError, setNameError] = useState(false);
-    const [emailError, setEmailError] = useState(false);
-    const [passError, setPassError] = useState(false)
-    const navigate = useNavigate();
-    axios.defaults.withCredentials = true;
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        axios.post('https://mern5-api.vercel.app/survey', { name, email, password })
-            .then(result => console.log(result))
-            .catch(err => console.log(err))
-        navigate('/login')
-    }
-    return (
-        <>
-            <div className='container'>
-                <div className="header">
-                    <h1 className="text">Register</h1>
-                </div>
-                <div className="underline"></div>
+  const [email, setEmail] = useState('');
+  const [mealName, setMealName] = useState('');
+  const [mealTime, setMealTime] = useState('');
+  const [insulinTime, setInsulinTime] = useState('');
+  const [insulinDose, setInsulinDose] = useState('');
+  const [carbCount, setCarbCount] = useState('');
+  const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    axios.post('https://mern5-api.vercel.app/survey', { email, mealName, mealTime, insulinTime, insulinDose, carbCount })
+      .then(result => console.log(result))
+      .catch(err => console.log(err))
+    navigate('/login')
+  }
+  return (
+    <>
+      <div className='container'>
+        <div className="header">
+          <h1 className="text">Register</h1>
+        </div>
+        <div className="underline"></div>
 
-                <form onSubmit={handleSubmit} className="inputs">
-                    <div className="input">
-                        <img src={user_icon} alt="" />
-                        <label htmlFor="name">
-                            <strong>Name</strong>
-                        </label>
-                        <input
-                            type='text'
-                            autoComplete='off'
-                            placeholder='Enter Name'
-                            name='name'
-                            className="text-box"
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                    </div>
+        <form onSubmit={handleSubmit} className="inputs">
 
-                    <br />
-                    <div className="input">
-                        <img src={email_icon} alt="" />
-                        <label htmlFor="email">
-                            <strong>Email</strong>
-                        </label>
-                        <input
-                            type='email'
-                            placeholder='Enter Email'
-                            autoComplete="off"
-                            name="email"
-                            className="text-box"
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <br />
-                    <div className="input">
-                        <img src={password_icon} alt="" />
-                        <label htmlFor="password">
-                            <strong>Password</strong>
-                        </label>
-                        <input
-                            type='password'
-                            placeholder='Enter Password'
-                            autoComplete='off'
-                            name='password'
-                            className='text-box'
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    <br />
-                    <div className="submit-container">
-                        
-                        <button type='submit' className='submit' disabled={!name || !email || !password}>
-                            Sign Up
-                        </button>
-                        
-                    </div>
-                    <br />
-                    <p>Already have an Account?</p>
-                    <div className="submit-container">
-                        
-                        <br></br>
-                        <Link to="/login">
-                            <button className='submit' >
-                                Login
-                            </button>
-                        </Link>
-                    </div>
-                </form>
+          <div className="input">
 
-            </div>
-        </>
-    )
+            <label htmlFor="email">
+              <strong>Email</strong>
+            </label>
+            <input
+              type='email'
+              placeholder='Enter Email'
+              autoComplete="off"
+              name="email"
+              className="text-box"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <br />
+          <div className="input">
+
+            <label htmlFor="name">
+              <strong>Meal Name</strong>
+            </label>
+            <input
+              type='text'
+              autoComplete='off'
+              placeholder='Enter Meal Name'
+              name='name'
+              className="text-box"
+              onChange={(e) => setMealName(e.target.value)}
+            />
+          </div>
+
+          <br />
+          <div className="input">
+
+            <label htmlFor="mtime">
+              <strong>Time of Meal</strong>
+            </label>
+            <input
+              type='text'
+              placeholder='Enter Time of Meal'
+              autoComplete='off'
+              name='mtime'
+              className='text-box'
+              onChange={(e) => setMealTime(e.target.value)}
+            />
+          </div>
+          <br />
+          <div className="input">
+
+            <label htmlFor="itime">
+              <strong>Time of Insulin</strong>
+            </label>
+            <input
+              type='text'
+              placeholder='Enter Time of Insulin'
+              autoComplete='off'
+              name='itime'
+              className='text-box'
+              onChange={(e) => setInsulinTime(e.target.value)}
+            />
+          </div>
+          <br />
+          <div className="input">
+
+            <label htmlFor="idose">
+              <strong>Dose of Insulin</strong>
+            </label>
+            <input
+              type='text'
+              placeholder='Enter Dosage Size'
+              autoComplete='off'
+              name='idose'
+              className='text-box'
+              onChange={(e) => setInsulinDose(e.target.value)}
+            />
+          </div>
+          <br />
+          <div className="input">
+
+            <label htmlFor="ccount">
+              <strong>Amount of Carbs</strong>
+            </label>
+            <input
+              type='text'
+              placeholder='Enter Carb Count'
+              autoComplete='off'
+              name='ccount'
+              className='text-box'
+              onChange={(e) => setCarbCount(e.target.value)}
+            />
+          </div>
+          <br />
+          <div className="submit-container">
+
+            <button type='submit' className='submit' >
+              Sign Up
+            </button>
+
+          </div>
+          <br />
+        </form>
+
+      </div>
+    </>
+  )
   /*
   const [email, setEmail] = useState([]);
 
