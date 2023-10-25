@@ -53,17 +53,24 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/survey', (req, res) => {
-    const {email, mealName, mealTime, insulinTime, insulinDose, carbCount} = req.body;
-    MealsModel.create({email: email, mealName: mealName, mealTime: mealTime, insulinTime: insulinTime, insulinDose: insulinDose, carbCount: carbCount})
+    const { email, mealName, mealTime, insulinTime, insulinDose, carbCount } = req.body;
+    var form = { email, mealName, mealTime, insulinTime, insulinDose, carbCount }
+    MealsModel.create({ email: email, mealName: mealName, mealTime: mealTime, insulinTime: insulinTime, insulinDose: insulinDose, carbCount: carbCount })
         .then(result => res.json(result))
         .catch(err => res.json(err))
-    RegisterModel.updateOne(
-        {email: email},
-        {$push: 
-            {meals: {
-                $each: [mealName, mealTime, insulinTime, insulinDose, carbCount]
-            }}}
-        )
+    RegisterModel.findOneAndUpdate(
+        { email: email },
+        { $push: { meals: form } }, 
+        function (error, success) {
+            if(error){
+                res.json(error)
+                console.log(error)
+            } else {
+                res.json(success)
+                console.log(success)
+            }
+        }
+    )
 })
 
 app.listen(8000, () => {
