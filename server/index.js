@@ -37,7 +37,7 @@ app.post('/login', (req, res) => {
         })
 })
 
-app.post('/register', jsonParser, (req, res) => {
+app.post('/register', (req, res) => {
     const { name, email, password } = req.body;
     RegisterModel.findOne({ email: email })
         .then(user => {
@@ -52,7 +52,7 @@ app.post('/register', jsonParser, (req, res) => {
         .catch(error => res.json(error))
 })
 
-app.post('/survey', (req, res) => {
+app.post('/survey',jsonParser, (req, res) => {
     const { email, mealName, mealTime, insulinTime, insulinDose, carbCount } = req.body;
     var form = { email, mealName, mealTime, insulinTime, insulinDose, carbCount }
     MealsModel.create({ email: email, mealName: mealName, mealTime: mealTime, insulinTime: insulinTime, insulinDose: insulinDose, carbCount: carbCount })
