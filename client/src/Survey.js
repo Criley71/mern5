@@ -70,7 +70,7 @@ function Survey() {
               <strong>Time of Meal</strong>
             </label>
             <input
-              type='text'
+              type='time'
               placeholder='Enter Time of Meal'
               autoComplete='off'
               name='mtime'
@@ -85,7 +85,7 @@ function Survey() {
               <strong>Time of Insulin</strong>
             </label>
             <input
-              type='text'
+              type='time'
               placeholder='Enter Time of Insulin'
               autoComplete='off'
               name='itime'
