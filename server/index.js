@@ -53,7 +53,10 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/survey', (req, res) => {
-    
+    const {email, mealName, mealTime, insulinTime, insulinDose, carbCount} = req.body;
+    MealsModel.create({email: email, mealName: mealName, mealTime: mealTime, insulinTime: insulinTime, insulinDose: insulinDose, carbCount: carbCount})
+        .then(result => res.json(result))
+        .catch(err => res.json(err))
 })
 
 app.listen(8000, () => {

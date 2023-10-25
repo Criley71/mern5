@@ -4,7 +4,7 @@ const mealSchema = new mongoose.Schema({
     mealName: String,
     mealTime: String,
     insulinTime: String,
-    dosage: String,
+    insulinDose: String,
     carbCount: String
 })
 
