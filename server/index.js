@@ -64,7 +64,7 @@ app.post('/register', (req, res) => {
         .catch(error => res.json(error))
 })
 
-app.post('/survey',jsonParser, (req, res) => {
+app.post('/survey', (req, res) => {
     const { email, mealName, mealTime, insulinTime, insulinDose, carbCount } = req.body;
     var form = { email, mealName, mealTime, insulinTime, insulinDose, carbCount }
     MealsModel.create({ email: email, mealName: mealName, mealTime: mealTime, insulinTime: insulinTime, insulinDose: insulinDose, carbCount: carbCount })
