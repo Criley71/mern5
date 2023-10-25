@@ -1,17 +1,7 @@
 import { React, useState } from 'react'
 import './Survey.css';
 import axios from 'axios';
-import {
-  Row,
-  Col,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  Button
 
-} from 'reactstrap';
 
 function Survey() {
   const [email, setEmail] = useState('')
