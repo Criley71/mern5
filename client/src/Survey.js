@@ -1,8 +1,126 @@
 import { React, useState } from 'react'
 import './Survey.css';
 import axios from 'axios';
+import {
+  Row,
+  Col,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText,
+  Button
 
+} from 'reactstrap';
 
+function Survey() {
+  const [email, setEmail] = useState('')
+  const [mealName, setMealName] = useState('')
+  const [mealTime, setMealTime] = useState('')
+  const [insulinTime, setInsulinTime] = useState('')
+  const [insulinDose, setInsulinDose] = useState('')
+  const [carbCount, setCarbCount] = useState('')
+  const [formData, setFormData] = useState = ('')
+  axios.defaults.withCredentials = true;
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios.post('https://mern5-api.vercel.app/survey', { email, mealName, mealTime, insulinTime, insulinDose, carbCount })
+      .then(result => console.log(result))
+      .catch(err => console.log(err))
+  }
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <div className="input">
+          <label htmlFor="email">
+            <strong>Email</strong>
+          </label>
+          <input
+            type='email'
+            placeholder='Enter Email'
+            autoComplete="off"
+            name="email"
+            className="text-box"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="input">
+          <label htmlFor="mealName">
+            <strong>Name of Meal</strong>
+          </label>
+          <input
+            type='text'
+            placeholder='Enter Name of Meal'
+            autoComplete="off"
+            name="mealName"
+            className="text-box"
+            onChange={(e) => setMealName(e.target.value)}
+          />
+        </div>
+        <div className="input">
+          <label htmlFor="mealTime">
+            <strong>Time of Meal</strong>
+          </label>
+          <input
+            type='text'
+            placeholder='Enter Time of Meal'
+            autoComplete="off"
+            name="mealTime"
+            className="text-box"
+            onChange={(e) => setMealTime(e.target.value)}
+          />
+        </div>
+        <div className="input">
+          <label htmlFor="insulinTime">
+            <strong>Time of Insulin</strong>
+          </label>
+          <input
+            type='text'
+            placeholder='Time of Insulin'
+            autoComplete="off"
+            name="insulinTime"
+            className="text-box"
+            onChange={(e) => setInsulinTime(e.target.value)}
+          />
+        </div>
+        <div className="input">
+          <label htmlFor="insulinDose">
+            <strong>Insulin Dosage</strong>
+          </label>
+          <input
+            type='text'
+            placeholder='Insulin Dose'
+            autoComplete="off"
+            name="insulinDose"
+            className="text-box"
+            onChange={(e) => setInsulinDose(e.target.value)}
+          />
+        </div>
+        <div className="input">
+          <label htmlFor="carbCount">
+            <strong>Amount of Carbs</strong>
+          </label>
+          <input
+            type='text'
+            placeholder='Carb Count'
+            autoComplete="off"
+            name="carbCount"
+            className="text-box"
+            onChange={(e) => setCarbCount(e.target.value)}
+          />
+        </div>
+        <button type='submit' disabled={!email || !mealName || !mealTime || !insulinTime || !insulinDose || !carbCount}>
+          submit
+        </button>
+      </form>
+    </>
+  )
+}
+
+export default Survey
+
+/*
 function Survey() {
   const [email, setEmail] = useState('')
   const [mealname, setMealName] = useState('');
@@ -66,7 +184,7 @@ function Survey() {
     console.log(insulintime);
     console.log(Number(insulindose));
     console.log(Number(carbcount));
-  */
+  
   return (
     <main>
       <div>
@@ -100,3 +218,4 @@ function Survey() {
 }
 
 export default Survey
+*/

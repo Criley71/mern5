@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const RegisterModel = require("./models/Register")
+const MealsModel = require("./models/Meals")
 const app = express()
 
 app.use(cors(
@@ -52,27 +53,7 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/survey', (req, res) => {
-    const { email, mealData } = req.body;
-    const email2 = "array12@gmail.com"
-    var mealVar = { mealName: 'mname', mealTime:'mtime', insulinTime: 'itime',dosage: 'idose',carbCount: 'carb'}
-    RegisterModel.findOneAndUpdate({email: email2}, {$push: {meals: mealVar }}, {upsert: true}, function (err, succ){
-        if (err){
-            console.log(err)
-        }
-        else {
-            console.log(succ)
-        }
-    })
-    res.json("cool")
-    RegisterModel.findOneAndUpdate({email: email}, {$push: {mealData }}, {upsert: true}, function (err, succ){
-        if (err){
-            console.log(err)
-        }
-        else {
-            console.log(succ)
-        }
-    })
-    res.json("cool2")
+    
 })
 
 app.listen(8000, () => {
