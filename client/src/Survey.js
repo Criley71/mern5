@@ -7,7 +7,7 @@ import password_icon from './password.png';
 import './Login.css'
 
 function Survey() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState([]);
 
 
   const [mealName, setMealName] = useState('');
