@@ -57,6 +57,13 @@ app.post('/survey', (req, res) => {
     MealsModel.create({email: email, mealName: mealName, mealTime: mealTime, insulinTime: insulinTime, insulinDose: insulinDose, carbCount: carbCount})
         .then(result => res.json(result))
         .catch(err => res.json(err))
+    RegisterModel.updateOne(
+        {email: email},
+        {$push: 
+            {meals: {
+                $each: [mealName, mealTime, insulinTime, insulinDose, carbCount]
+            }}}
+        )
 })
 
 app.listen(8000, () => {

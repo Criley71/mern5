@@ -7,21 +7,19 @@ import password_icon from './password.png';
 import './Login.css'
 
 function Survey() {
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mealName, setMealName] = useState('');
   const [mealTime, setMealTime] = useState('');
   const [insulinTime, setInsulinTime] = useState('');
   const [insulinDose, setInsulinDose] = useState('');
   const [carbCount, setCarbCount] = useState('');
-  const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault()
     axios.post('https://mern5-api.vercel.app/survey', { email, mealName, mealTime, insulinTime, insulinDose, carbCount })
       .then(result => console.log(result))
       .catch(err => console.log(err))
-    navigate('/login')
+    
   }
   return (
     <>
